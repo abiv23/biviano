@@ -217,9 +217,9 @@ export default function Component() {
     <>
       <div className="relative w-full h-full flex flex-col items-center justify-center bg-teal-600 py-20" style={{ maxHeight: '100%' }}>
         {/* Creative Text Card */}
-        <div className="bg-white rounded-lg shadow-lg p-4 mb-6 border-4 border-pink-500 transform -rotate-2 w-80 text-center">
+        <div className="bg-white rounded-lg shadow-lg p-4 mb-6 border-4 border-pink-500 transform -rotate-2 w-90 text-center">
           <h2 className="text-3xl font-bold text-pink-600 mb-1">Let's Get Creative!</h2>
-          <p className="text-gray-700">Unleash your imagination</p>
+          <p className="text-gray-700">Fully-interactive, draw below with your cursor</p>
           <div className="mt-2 flex justify-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500 animate-bounce">
               <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -306,6 +306,18 @@ export default function Component() {
           <div className="bg-gray-300 px-2 py-1 text-sm border-t border-gray-400">
             For Help, click Help Topics on the Help Menu.
           </div>
+        </div>
+        
+        {/* Contact Us Button */}
+        <div className="mt-4">
+          <Button 
+            variant="secondary" 
+            size="lg" 
+            className="text-3xl py-10 font-bold bg-pink-500 hover:bg-pink-600 text-white hover:cursor-pointer font-geist"
+            onClick={() => alert('Contact form coming soon!')}
+          >
+            Contact Us
+          </Button>
         </div>
       </div>
     </>
