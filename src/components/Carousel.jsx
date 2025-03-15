@@ -13,42 +13,34 @@ const Carousel = () => {
       src: "/images/double-rainbow.png", 
       alt: "Modern Web Design", 
       title: "Modern Web Design",
-      description: "Responsive, intuitive interfaces that captivate your audience across all devices. Elevate your brand with cutting-edge design.",
+      description: "Stunning, responsive interfaces that captivate visitors across all devices. Our pixel-perfect designs combine aesthetics with functionality to elevate your brand's digital presence.",
       cta: "View Portfolio",
       ctaLink: "/portfolio"
+    },
+    { 
+     src: "/images/platte.png", 
+     alt: "Performance Optimization", 
+     title: "Performance Optimization",
+     description: "Revitalize your existing website with lightning-fast load times, mobile-friendly designs, and search engine optimization that drives organic traffic and improves rankings.",
+     cta: "Boost Your Site",
+     ctaLink: "/optimization"
     },
     { 
       src: "/images/arvada-sunrise.png", 
       alt: "Custom Web Applications", 
       title: "Custom Web Applications",
-      description: "Tailored solutions built with modern frameworks that scale with your business needs and deliver exceptional user experiences.",
+      description: "Bespoke solutions built with cutting-edge frameworks that grow with your business. We create intuitive applications that streamline operations and delight users.",
       cta: "Our Services",
       ctaLink: "/services"
     },
     { 
-      src: "/images/notre-dame-cathedral.png", 
-      alt: "E-Commerce Solutions", 
-      title: "E-Commerce Solutions",
-      description: "Powerful online stores with secure payment processing, inventory management, and optimized conversion funnels.",
-      cta: "Start Selling",
-      ctaLink: "/ecommerce"
-    },
-    { 
-      src: "/images/platte.png", 
-      alt: "Performance Optimization", 
-      title: "Performance Optimization",
-      description: "Transform your existing website with speed optimization, responsive design, and improved SEO for better search rankings.",
-      cta: "Boost Your Site",
-      ctaLink: "/optimization"
-    },
-    { 
       src: "/images/arcade.png", 
       alt: "Custom Arcade Builds", 
-      title: "Custom Arcade Builds",
-      description: "Free Play Arcades custom built with your favorite memories",
+      title: "Free Play Arcades",
+      description: "Custom-built arcade machines featuring classic and modern games for businesses and enthusiasts. Create memorable experiences that keep customers coming back.",
       cta: "Get a Quote",
       ctaLink: "/support"
-    },
+    }
   ]
 
   useEffect(() => {
@@ -103,18 +95,34 @@ const Carousel = () => {
               src={item.src} 
               alt={item.alt}
               className="object-cover w-full h-full"
+              style={{ 
+                filter: "contrast(1.1) saturate(1.2) brightness(1.05)",
+                imageRendering: "crisp-edges"
+              }}
             />
             
-            {/* Centered Material Design Card Overlay */}
+            {/* Updated Card Design with Modern Font */}
             <div className="absolute inset-0 flex items-center justify-center px-4">
-              <div className="max-w-md w-full overflow-hidden rounded-lg shadow-xl bg-black bg-opacity-75 backdrop-blur-md border border-gray-700">
+              <div className="max-w-md w-full overflow-hidden rounded-xl shadow-xl bg-white dark:bg-black dark:bg-opacity-75 backdrop-blur-md transform hover:scale-105 transition-transform duration-300">
                 <div className="p-8 text-center">
-                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">{item.title}</h2>
-                  <p className="text-gray-200 mb-8 leading-relaxed">{item.description}</p>
+                  <h2 
+                    className="text-2xl md:text-3xl font-bold mb-4 tracking-tight bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent" 
+                    style={{ fontFamily: "var(--font-outfit)" }}
+                  >
+                    {item.title}
+                  </h2>
+                  <div className="w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full mb-4"></div>
+                  <p 
+                    className="text-slate-700 dark:text-slate-200 mb-8 leading-relaxed" 
+                    style={{ fontFamily: "var(--font-inter)" }}
+                  >
+                    {item.description}
+                  </p>
                   <Button 
                     variant="default" 
                     size="lg" 
-                    className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium px-8 py-3 rounded-md shadow-lg cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-indigo-500/25"
+                    className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-medium px-8 py-3 rounded-md shadow-lg cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-purple-500/25"
+                    style={{ fontFamily: "var(--font-outfit)" }}
                     onClick={() => window.location.href = item.ctaLink}
                   >
                     {item.cta}
@@ -143,7 +151,7 @@ const Carousel = () => {
       {/* Navigation Arrows */}
       <button 
         onClick={() => goToSlide((activeIndex - 1 + items.length) % items.length)}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full focus:outline-none transition-all"
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full focus:outline-none transition-all hover:scale-110"
         aria-label="Previous slide"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,7 +160,7 @@ const Carousel = () => {
       </button>
       <button 
         onClick={() => goToSlide((activeIndex + 1) % items.length)}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full focus:outline-none transition-all"
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full focus:outline-none transition-all hover:scale-110"
         aria-label="Next slide"
       >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

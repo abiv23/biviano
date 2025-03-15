@@ -215,7 +215,19 @@ export default function Component() {
 
   return (
     <>
-      <div className="relative w-full h-full flex items-center justify-center bg-teal-600 py-20" style={{ maxHeight: '100%' }}>
+      <div className="relative w-full h-full flex flex-col items-center justify-center bg-teal-600 py-20" style={{ maxHeight: '100%' }}>
+        {/* Creative Text Card */}
+        <div className="bg-white rounded-lg shadow-lg p-4 mb-6 border-4 border-pink-500 transform -rotate-2 w-80 text-center">
+          <h2 className="text-3xl font-bold text-pink-600 mb-1">Let's Get Creative!</h2>
+          <p className="text-gray-700">Unleash your imagination</p>
+          <div className="mt-2 flex justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-500 animate-bounce">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </div>
+        </div>
+        
         <div 
           ref={containerRef}
           className="relative bg-gray-200 border-2 border-white shadow-md" 
@@ -228,7 +240,7 @@ export default function Component() {
             onMouseUp={stopDragging}
             onMouseLeave={stopDragging}
           >
-            <span>untitled - Paint</span>
+            <span>MSbiv - Paint</span>
             <div className="flex gap-1">
               <Button variant="ghost" className="h-5 w-5 p-0 min-w-0 text-white hover:bg-blue-700">_</Button>
               <Button variant="ghost" className="h-5 w-5 p-0 min-w-0 text-white hover:bg-blue-700">□</Button>
