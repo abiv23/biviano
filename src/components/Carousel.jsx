@@ -1,0 +1,166 @@
+"use client"
+
+import { useState, useRef, useEffect } from "react"
+import { Button } from "@/components/ui/button"
+
+const Carousel = () => {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const carouselRef = useRef(null)
+
+  // Enhanced items with web development related content and CTA
+  const items = [
+    { 
+      src: "/images/double-rainbow.png", 
+      alt: "Modern Web Design", 
+      title: "Modern Web Design",
+      description: "Responsive, intuitive interfaces that captivate your audience across all devices. Elevate your brand with cutting-edge design.",
+      cta: "View Portfolio",
+      ctaLink: "/portfolio"
+    },
+    { 
+      src: "/images/arvada-sunrise.png", 
+      alt: "Custom Web Applications", 
+      title: "Custom Web Applications",
+      description: "Tailored solutions built with modern frameworks that scale with your business needs and deliver exceptional user experiences.",
+      cta: "Our Services",
+      ctaLink: "/services"
+    },
+    { 
+      src: "/images/notre-dame-cathedral.png", 
+      alt: "E-Commerce Solutions", 
+      title: "E-Commerce Solutions",
+      description: "Powerful online stores with secure payment processing, inventory management, and optimized conversion funnels.",
+      cta: "Start Selling",
+      ctaLink: "/ecommerce"
+    },
+    { 
+      src: "/images/platte.png", 
+      alt: "Performance Optimization", 
+      title: "Performance Optimization",
+      description: "Transform your existing website with speed optimization, responsive design, and improved SEO for better search rankings.",
+      cta: "Boost Your Site",
+      ctaLink: "/optimization"
+    },
+    { 
+      src: "/images/arcade.png", 
+      alt: "Custom Arcade Builds", 
+      title: "Custom Arcade Builds",
+      description: "Free Play Arcades custom built with your favorite memories",
+      cta: "Get a Quote",
+      ctaLink: "/support"
+    },
+  ]
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (carouselRef.current) {
+        const index = Math.round(carouselRef.current.scrollLeft / carouselRef.current.offsetWidth)
+        setActiveIndex(index)
+      }
+    }
+
+    carouselRef.current?.addEventListener("scroll", handleScroll)
+    return () => carouselRef.current?.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Auto-scroll functionality
+  useEffect(() => {
+    const autoScroll = setInterval(() => {
+      if (carouselRef.current) {
+        const nextIndex = (activeIndex + 1) % items.length
+        carouselRef.current.scrollTo({
+          left: nextIndex * carouselRef.current.offsetWidth,
+          behavior: "smooth"
+        })
+        setActiveIndex(nextIndex)
+      }
+    }, 15000) // 15 seconds interval
+
+    return () => clearInterval(autoScroll)
+  }, [activeIndex, items.length])
+
+  // Function to manually navigate to a slide
+  const goToSlide = (index) => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({
+        left: index * carouselRef.current.offsetWidth,
+        behavior: "smooth"
+      })
+      setActiveIndex(index)
+    }
+  }
+
+  return (
+    <div className="relative h-full w-full overflow-hidden" style={{ height: "800px" }}>
+      <div
+        ref={carouselRef}
+        className="flex h-full w-full overflow-x-auto snap-x snap-mandatory scrollbar-hide"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        {items.map((item, index) => (
+          <div key={index} className="relative flex-shrink-0 h-full w-full snap-start flex items-center justify-center bg-gray-900">
+            <img 
+              src={item.src} 
+              alt={item.alt}
+              className="object-cover w-full h-full"
+            />
+            
+            {/* Centered Material Design Card Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center px-4">
+              <div className="max-w-md w-full overflow-hidden rounded-lg shadow-xl bg-black bg-opacity-75 backdrop-blur-md border border-gray-700">
+                <div className="p-8 text-center">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">{item.title}</h2>
+                  <p className="text-gray-200 mb-8 leading-relaxed">{item.description}</p>
+                  <Button 
+                    variant="default" 
+                    size="lg" 
+                    className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium px-8 py-3 rounded-md shadow-lg cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-indigo-500/25"
+                    onClick={() => window.location.href = item.ctaLink}
+                  >
+                    {item.cta}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Navigation Dots */}
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-3">
+        {items.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${
+              index === activeIndex ? "bg-white scale-125" : "bg-gray-400 bg-opacity-70"
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+      
+      {/* Navigation Arrows */}
+      <button 
+        onClick={() => goToSlide((activeIndex - 1 + items.length) % items.length)}
+        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full focus:outline-none transition-all"
+        aria-label="Previous slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button 
+        onClick={() => goToSlide((activeIndex + 1) % items.length)}
+        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-900 bg-opacity-50 hover:bg-opacity-70 text-white p-2 rounded-full focus:outline-none transition-all"
+        aria-label="Next slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+    </div>
+  )
+}
+
+export default Carousel
