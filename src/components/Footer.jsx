@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Logo and tagline */}
           <div className="md:col-span-1">
             <Link href="/" className="inline-block">
-              <span className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent" style={{ fontFamily: "var(--font-outfit)" }}>YourBrand</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent" style={{ fontFamily: "var(--font-outfit)" }}>Biv</span>
             </Link>
             <p className="mt-3 text-sm text-gray-500 dark:text-gray-400" style={{ fontFamily: "var(--font-inter)" }}>
               Creating digital experiences that inspire and connect
@@ -87,8 +87,8 @@ const Footer = () => {
             </div>
             
             <p className="text-sm text-gray-600 dark:text-gray-400" style={{ fontFamily: "var(--font-inter)" }}>
-              <a href="mailto:hello@yourbrand.com" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                hello@yourbrand.com
+              <a href="mailto:abivWebsites@gmail.com" className="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                abivWebsites@gmail.com
               </a>
             </p>
           </div>
@@ -98,7 +98,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-xs text-gray-500 dark:text-gray-400" style={{ fontFamily: "var(--font-inter)" }}>
-              © {currentYear} YourBrand. All rights reserved.
+              © {currentYear} Biv. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link 
