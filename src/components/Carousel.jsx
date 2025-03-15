@@ -10,14 +10,6 @@ const Carousel = () => {
   // Enhanced items with web development related content and CTA
   const items = [
     { 
-      src: "/images/double-rainbow.png", 
-      alt: "Modern Web Design", 
-      title: "Modern Web Design",
-      description: "Stunning, responsive interfaces that captivate visitors across all devices. Our pixel-perfect designs combine aesthetics with functionality to elevate your brand's digital presence.",
-      cta: "View Portfolio",
-      ctaLink: "/portfolio"
-    },
-    { 
      src: "/images/platte.png", 
      alt: "Performance Optimization", 
      title: "Performance Optimization",
@@ -40,6 +32,14 @@ const Carousel = () => {
       description: "Custom-built arcade machines featuring classic and modern games for businesses and enthusiasts. Create memorable experiences that keep customers coming back.",
       cta: "Get a Quote",
       ctaLink: "/support"
+    },
+    { 
+     src: "/images/double-rainbow.png", 
+     alt: "Modern Web Design", 
+     title: "Modern Web Design",
+     description: "Stunning, responsive interfaces that captivate visitors across all devices. Our pixel-perfect designs combine aesthetics with functionality to elevate your brand's digital presence.",
+     cta: "View Portfolio",
+     ctaLink: "/portfolio"
     }
   ]
 

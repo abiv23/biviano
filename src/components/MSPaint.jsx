@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useRef, useState, useEffect } from 'react';
-import ConfettiCursor from '../components/ConfettiCursor'
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+import ContactForm from '@/components/ContactForm'; // Import from shared components directory
 
 const colors = [
   '#000000', '#808080', '#800000', '#808000', '#008000', '#008080', '#000080', '#800080', '#808040', '#004040', '#0080FF', '#004080', '#8000FF', '#804000',
@@ -17,6 +17,7 @@ export default function Component() {
   const [tool, setTool] = useState('brush');
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [dragging, setDragging] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -213,6 +214,38 @@ export default function Component() {
     setDragging(false);
   };
 
+  const handleSavePhoto = () => {
+    const canvas = canvasRef.current;
+    
+    // Create a download link
+    if (canvas) {
+      // Get the visible portion (viewport) of the canvas
+      const dataUrl = canvas.toDataURL('image/png');
+      
+      // Create a download link
+      const downloadLink = document.createElement('a');
+      downloadLink.href = dataUrl;
+      downloadLink.download = 'my-masterpiece.png';
+      
+      // Trigger the download
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+      
+      // Show the contact form
+      setShowContactForm(true);
+    }
+  };
+
+  const handleContactSubmit = async (data) => {
+    // Here you would normally send the contact form data to your backend
+    console.log('Contact form submitted with data:', data);
+    
+    // For demonstration purposes, show a success message
+    alert(`Thanks for reaching out, ${data.name}! We'll get back to you at ${data.email}`);
+    setShowContactForm(false);
+  };
+
   return (
     <>
       <div className="relative w-full h-full flex flex-col items-center justify-center bg-teal-600 py-20" style={{ maxHeight: '100%' }}>
@@ -308,17 +341,35 @@ export default function Component() {
           </div>
         </div>
         
-        {/* Contact Us Button */}
-        <div className="mt-4">
+        {/* Save Photo Button */}
+        <div className="mt-11">
           <Button 
             variant="secondary" 
             size="lg" 
-            className="text-3xl py-10 font-bold bg-pink-500 hover:bg-pink-600 text-white hover:cursor-pointer font-geist"
-            onClick={() => alert('Contact form coming soon!')}
+            className="text-3xl py-10 font-bold bg-green-500 hover:bg-green-600 text-white hover:cursor-pointer font-geist flex items-center"
+            onClick={handleSavePhoto}
           >
-            Contact Us
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Save Photo
           </Button>
         </div>
+        
+        {/* Contact Form Modal (using the reusable component) */}
+        {showContactForm && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <ContactForm 
+              title="Stay Connected"
+              submitText="Submit" 
+              cancelText="Maybe Later"
+              onSubmit={handleContactSubmit}
+              onCancel={() => setShowContactForm(false)}
+            />
+          </div>
+        )}
       </div>
     </>
   );
