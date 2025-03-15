@@ -74,7 +74,7 @@ function ElegantShape({
 
 export default function Hero({
   badge = "",
-  title1 = "Andrew Biv",
+  title1 = "Luca Biv",
   title2 = "Websites",
 }) 
 

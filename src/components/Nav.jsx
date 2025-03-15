@@ -50,21 +50,36 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6">
-            {["Services", "Work", "About", "Blog", "Contact"].map((item, i) => (
-              <Link 
-                key={i}
-                href="#" 
+          {/* {["", "", ""].map((item, i) => ( */}
+            <Link 
+                key={'About'}
+                href="/about" 
                 className="text-white hover:text-indigo-300 transition-colors text-sm"
                 style={{ fontFamily: "var(--font-inter)" }}
-              >
-                {item}
-              </Link>
-            ))}
+                >
+                About
+            </Link>
+            <Link 
+                key={'Clients'}
+                href="/portfolio" 
+                className="text-white hover:text-indigo-300 transition-colors text-sm"
+                style={{ fontFamily: "var(--font-inter)" }}
+                >
+                Clients
+            </Link>
+            <Link 
+                key={'Website Optimization'}
+                href="/seo" 
+                className="text-white hover:text-indigo-300 transition-colors text-sm"
+                style={{ fontFamily: "var(--font-inter)" }}
+                >
+                Website Optimization
+            </Link>
             <Button 
               className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white"
               style={{ fontFamily: "var(--font-outfit)" }}
             >
-              Get Started
+              Contact
             </Button>
           </nav>
 
