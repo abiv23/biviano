@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Modern Web Design Portfolio
+
+A sleek, modern web portfolio showcasing professional web design and development services. Built with Next.js, Tailwind CSS, and modern UI components.
+
+![Project Screenshot](public/images/screenshot.png)
+
+## Features
+
+- **Responsive Design**: Fully responsive layout that looks great on all devices
+- **Interactive Carousel**: Auto-scrolling carousel with custom controls
+- **Modern UI Elements**: 
+  - Transparent scroll header that appears on scroll
+  - Minimalist footer with comprehensive navigation
+  - Beautiful gradient text elements
+  - Glass morphism effects
+- **Dark Mode Support**: Compatible with light and dark mode preferences
+- **Performance Optimized**: Fast loading times and smooth animations
+- **Custom Typography**: Enhanced with modern variable fonts (Outfit, Inter, etc.)
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Typography**: Google Fonts (Geist, Outfit, Inter, etc.)
+- **UI Components**: Custom components with shadcn/ui structure
+- **Animation**: CSS transitions and Tailwind animations
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+ and npm/yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/modern-web-portfolio.git
+   cd modern-web-portfolio
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+├── app/                    # Next.js app directory
+│   ├── layout.js           # Root layout with fonts
+│   ├── page.js             # Homepage
+│   └── globals.css         # Global styles
+├── components/             # React components
+│   ├── ui/                 # Reusable UI components
+│   │   └── button.jsx      # Button component
+│   ├── Carousel.jsx        # Feature carousel
+│   ├── Header.jsx          # Transparent scroll header
+│   ├── Footer.jsx          # Site footer
+│   └── ConfettiCursor.jsx  # Interactive cursor effect
+├── public/                 # Static assets
+│   ├── images/             # Image assets
+│   └── favicon.ico         # Site favicon
+└── tailwind.config.js      # Tailwind configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Customization
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Fonts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The project uses Google Fonts with Next.js font optimization. You can modify the fonts in `app/layout.js`:
 
-## Learn More
+```javascript
+import { Inter, Outfit, Plus_Jakarta_Sans, Space_Grotesk, Lexend } from "next/font/google";
 
-To learn more about Next.js, take a look at the following resources:
+// Font configurations
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+// Add to body className
+<body className={`${inter.variable} ${outfit.variable} antialiased`}>
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Colors
 
-## Deploy on Vercel
+The primary color scheme uses indigo and purple gradients. Modify the gradients in the relevant components or update the theme in `tailwind.config.js`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Images
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Replace the carousel images in the `public/images/` directory with your own. Update the image paths in the `Carousel.jsx` component.
+
+## Deployment
+
+Deploy on Vercel for the best experience with Next.js:
+
+```bash
+npm run build
+# or
+vercel deploy
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org/) - The React framework for production
+- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [shadcn/ui](https://ui.shadcn.com/) - UI component structure
+- [Google Fonts](https://fonts.google.com/) - Typography
