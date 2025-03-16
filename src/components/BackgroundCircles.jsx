@@ -60,7 +60,7 @@ export function BackgroundCircles({
   description = "Be Fast",
   description2 = "Be Found",
   className,
-  variant = "octonary",
+  variant = "secondary",
 }) {
   const variantStyles = COLOR_VARIANTS[variant]
 

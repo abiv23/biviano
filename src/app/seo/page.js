@@ -1,7 +1,9 @@
-// src/app/seo/page.js
 import { BackgroundCircles } from '../../components/BackgroundCircles';
-import Waves from '../../components/Waves'
+import Waves from '../../components/Waves';
 import Carousel from '@/components/Carousel';
+import FullWidthImage from '@/components/FullImage'
+import ContentBlurb from '@/components/ContentBlurb';
+
 
 export default function SEOPage() {
   const carouselItems = [
@@ -47,10 +49,22 @@ export default function SEOPage() {
     }
   ];
 
+  const contentHeader = 'Why Choose Us?'
+
+  const blurbText = `With over two decades of SEO expertise powering multi-million-dollar 
+    businesses and a decade of crafting high-performance websites, we bring professional-grade 
+    solutions to your digital doorstep. Our team has honed its skills on sites with 1.2 million 
+    daily users, delivering custom-built websites—no cookie-cutter builders like Squarespace that 
+    stifle speed and flexibility. You’ll own your site outright, free and clear, with full transfer 
+    rights if we ever part ways. Plus, enjoy seamless analytics and Google integration, all at a fraction
+     of the cost of typical agencies.`
+
   return (
     <div className="relative min-h-screen">
       {/* Background element */}
       <BackgroundCircles />
+      <ContentBlurb header={contentHeader} text={blurbText}/>
+      <FullWidthImage src="/images/google-search-console.png" />
       <Carousel items={carouselItems} />
       <Waves />
     </div>
