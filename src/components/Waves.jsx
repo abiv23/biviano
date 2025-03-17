@@ -1,7 +1,9 @@
 "use client"
 
 import { useEffect, useRef, useState } from 'react'
+// No external CSS import needed - we'll use inline styles and keyframes
 import ContactForm from '@/components/ContactForm'
+import Image from 'next/image'
 
 export default function Component() {
   const canvasRef = useRef(null)
@@ -92,7 +94,22 @@ export default function Component() {
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full bg-black" />
       
       <div className="relative z-10 flex items-center justify-center w-full h-full">
-        <div className="p-8 rounded-lg bg-black bg-opacity-60 backdrop-blur-md w-full max-w-md">
+        
+        {/* Dog positioned behind the form */}
+        <div className="absolute" style={{ top: 'calc(22% - 155px)', zIndex: 5 }}>
+          <div className="relative w-full flex justify-center">
+            <Image
+              src="/images/dog.png" 
+              alt="White dog peeking"
+              width={200}
+              height={160}
+              className="object-contain"
+              priority
+            />
+          </div>
+        </div>
+        
+        <div className="p-8 rounded-lg bg-black bg-opacity-60 backdrop-blur-md w-full max-w-md z-10 relative">
           {isSubmitted ? (
             <div className="text-center text-white">
               <h2 className="text-2xl font-bold mb-4">Thanks for reaching out!</h2>
@@ -100,7 +117,7 @@ export default function Component() {
             </div>
           ) : (
             <ContactForm 
-              title="Contact Us"
+              title="Obey my Dog | Contact Me"
               submitText="Send Message"
               onSubmit={handleFormSubmit}
               darkMode={true}
