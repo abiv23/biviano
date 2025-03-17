@@ -5,6 +5,7 @@ import MSPaint from '@/components/MSPaint'
 import Waves from '@/components/Waves'
 import Carousel from '@/components/Carousel'
 import ServicesSection from '@/components/ServicesSection'
+import CompanyStats from '@/components/CompanyStats'
 
 export default function Home() {
 
@@ -79,12 +80,13 @@ export default function Home() {
     <>
       <Hero />
       <Carousel items={carouselItems} />
-      <MSPaint />
+      <CompanyStats />
       <ServicesSection 
           title="Our Services" 
           description=""
           services={webDesignServices}
         />
+      <MSPaint />
       <Waves />
     </>
   );
