@@ -13,7 +13,7 @@ export default function Home() {
        title: "Performance Optimization",
        description: "Revitalize your existing website with lightning-fast load times, mobile-friendly designs, and search engine optimization that drives organic traffic and improves rankings.",
        cta: "Boost Your Site",
-       ctaLink: "/optimization"
+       ctaLink: "/seo"
       },
       { 
         src: "/images/arvada-sunrise.png", 
@@ -21,15 +21,7 @@ export default function Home() {
         title: "Custom Web Applications",
         description: "Bespoke solutions built with cutting-edge frameworks that grow with your business. We create intuitive applications that streamline operations and delight users.",
         cta: "Our Services",
-        ctaLink: "/services"
-      },
-      { 
-        src: "/images/arcade.png", 
-        alt: "Custom Arcade Builds", 
-        title: "Free Play Arcades",
-        description: "Custom-built arcade machines featuring classic and modern games for businesses and enthusiasts. Create memorable experiences that keep customers coming back.",
-        cta: "Get a Quote",
-        ctaLink: "/support"
+        ctaLink: "/seo"
       },
       { 
        src: "/images/double-rainbow.png", 
@@ -37,7 +29,7 @@ export default function Home() {
        title: "Modern Web Design",
        description: "Stunning, responsive interfaces that captivate visitors across all devices. Our pixel-perfect designs combine aesthetics with functionality to elevate your brand's digital presence.",
        cta: "View Portfolio",
-       ctaLink: "/portfolio"
+       ctaLink: "/seo"
       }
     ]
 
@@ -45,9 +37,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <DynamicBackground />
-      <MSPaint />
       <Carousel items={carouselItems} />
+      <MSPaint />
       <Waves />
     </>
   );

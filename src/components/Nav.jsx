@@ -49,10 +49,8 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-          {/* {["", "", ""].map((item, i) => ( */}
+          <nav className="hidden md:flex items-center space-x-6 cursor-auto">
             <Link 
-                key={'About'}
                 href="/about" 
                 className="text-white hover:text-indigo-300 transition-colors text-sm"
                 style={{ fontFamily: "var(--font-inter)" }}
@@ -60,27 +58,32 @@ const Header = () => {
                 About
             </Link>
             <Link 
-                key={'Clients'}
-                href="/portfolio" 
+                href="/web-design" 
                 className="text-white hover:text-indigo-300 transition-colors text-sm"
                 style={{ fontFamily: "var(--font-inter)" }}
                 >
-                Clients
+                Design
             </Link>
             <Link 
-                key={'Website Optimization'}
                 href="/seo" 
                 className="text-white hover:text-indigo-300 transition-colors text-sm"
                 style={{ fontFamily: "var(--font-inter)" }}
                 >
-                Website Optimization
+                SEO
             </Link>
-            <Button 
-              className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white"
-              style={{ fontFamily: "var(--font-outfit)" }}
-            >
-              Contact
-            </Button>
+            <Link 
+                href="/contact" 
+                className="text-white hover:text-indigo-300 transition-colors text-sm cursor-pointer"
+                style={{ fontFamily: "var(--font-inter)" }}
+                >
+                <Button 
+                  className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white cursor-pointer"
+                  style={{ fontFamily: "var(--font-outfit)" }}
+                >
+                  Contact
+                </Button>
+            </Link>
+
           </nav>
 
           {/* Mobile Menu Button */}

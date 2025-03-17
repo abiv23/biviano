@@ -51,20 +51,26 @@ export default function SEOPage() {
 
   const contentHeader = 'Why Choose Us?'
 
-  const blurbText = `With over two decades of SEO expertise powering multi-million-dollar 
+  const blurbText1 = `With over two decades of SEO expertise powering multi-million-dollar 
     businesses and a decade of crafting high-performance websites, we bring professional-grade 
-    solutions to your digital doorstep. Our team has honed its skills on sites with 1.2 million 
-    daily users, delivering custom-built websites—no cookie-cutter builders like Squarespace that 
-    stifle speed and flexibility. You’ll own your site outright, free and clear, with full transfer 
-    rights if we ever part ways. Plus, enjoy seamless analytics and Google integration, all at a fraction
-     of the cost of typical agencies.`
+    solutions to your digital doorstep.`
+
+  const blurbText2 = `Our team has honed its skills on sites with 1.2 million daily users, delivering custom-built websites—no cookie-cutter builders like Squarespace that 
+    stifle speed and flexibility.`
+    
+  const blurbText3 = `You’ll own your site outright, free and clear, with full transfer rights if we ever part ways. Plus, enjoy seamless analytics and Google integration, all at a fraction of the cost of typical agencies.`
 
   return (
     <div className="relative min-h-screen">
       {/* Background element */}
       <BackgroundCircles />
-      <ContentBlurb header={contentHeader} text={blurbText}/>
-      <FullWidthImage src="/images/google-search-console.png" />
+      <ContentBlurb 
+        header={contentHeader} 
+        text1={blurbText1} 
+        text2={blurbText2} 
+        text3={blurbText3} 
+        imgSrc="/images/google-search-console.png" 
+      />
       <Carousel items={carouselItems} />
       <Waves />
     </div>

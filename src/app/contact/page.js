@@ -1,0 +1,11 @@
+import Waves from '../../components/Waves';
+
+
+export default function ContactPage() {
+
+  return (
+    <div className="relative min-h-screen">
+      <Waves />
+    </div>
+  );
+}

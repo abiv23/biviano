@@ -2,11 +2,15 @@ import React from 'react';
 
 export default function ContentBlurb({ 
   header, 
-  text, 
+  text1, 
+  text2,
+  text3,
   highlightColor = "violet",
   icon = null,
   actionText = null,
-  onActionClick = () => {}
+  onActionClick = () => {},
+  imgSrc = null,
+  imgAlt = "Featured image"
 }) {
   // Map of color options for the highlight accent (Material Design palette)
   const colorMap = {
@@ -56,45 +60,109 @@ export default function ContentBlurb({
 
   const colors = colorMap[highlightColor] || colorMap.indigo;
 
-  return (
-    <div className="flex justify-center w-full p-4">
-      <div className="max-w-md w-full rounded-lg bg-white dark:bg-gray-800 overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700">
-        {/* Material Design style card with elevation */}
-        
-        {/* Colored header bar - always visible even without icon */}
-        <div className={`${colors.bg} h-3 w-full`}></div>
-        
-        {/* Optional icon that sits on the header bar */}
-        {icon && (
-          <div className="flex justify-center -mt-8 mb-2">
-            <div className={`w-16 h-16 rounded-full ${colors.bg} p-1 shadow-lg`}>
-              <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-xl text-gray-800">
-                {icon}
+  // If no image is provided, only render the content card
+  if (!imgSrc) {
+    return (
+      <div className="flex justify-center w-full p-4">
+        <div className="max-w-md w-full rounded-lg bg-white dark:bg-gray-800 overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700">
+          {/* Colored header bar - always visible even without icon */}
+          <div className={`${colors.bg} h-3 w-full`}></div>
+          
+          {/* Optional icon that sits on the header bar */}
+          {icon && (
+            <div className="flex justify-center -mt-8 mb-2">
+              <div className={`w-16 h-16 rounded-full ${colors.bg} p-1 shadow-lg`}>
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-xl text-gray-800">
+                  {icon}
+                </div>
               </div>
             </div>
-          </div>
-        )}
-        
-        {/* Card content with increased padding */}
-        <div className="p-6">
-          <h2 className="text-xl font-medium text-gray-800 dark:text-white mb-4">
-            {header}
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
-            {text}
-          </p>
+          )}
           
-          {/* Optional action button - Material style with more emphasis */}
-          {actionText && (
-            <div className="flex justify-end">
-              <button 
-                onClick={onActionClick}
-                className={`uppercase font-medium ${colors.text} py-2 px-6 rounded focus:outline-none focus:ring-2 ${colors.ripple} transition-colors`}
-              >
-                {actionText}
-              </button>
+          {/* Card content with increased padding */}
+          <div className="p-6">
+            <h2 className="text-xl font-medium text-gray-800 dark:text-white mb-4">
+              {header}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
+              {text}
+            </p>
+            
+            {/* Optional action button - Material style with more emphasis */}
+            {actionText && (
+              <div className="flex justify-end">
+                <button 
+                  onClick={onActionClick}
+                  className={`uppercase font-medium ${colors.text} py-2 px-6 rounded focus:outline-none focus:ring-2 ${colors.ripple} transition-colors`}
+                >
+                  {actionText}
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // If image is provided, render two cards in a flex container
+  return (
+    <div className="flex flex-col md:flex-row w-full p-12 gap-4">
+      {/* Content card - 1/4 width on desktop */}
+      <div className="w-full md:w-1/4">
+        <div className="w-full rounded-lg bg-white dark:bg-gray-800 overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 h-full">
+          {/* Colored header bar - always visible even without icon */}
+          <div className={`${colors.bg} h-3 w-full`}></div>
+          
+          {/* Optional icon that sits on the header bar */}
+          {icon && (
+            <div className="flex justify-center -mt-8 mb-2">
+              <div className={`w-16 h-16 rounded-full ${colors.bg} p-1 shadow-lg`}>
+                <div className="w-full h-full rounded-full bg-white flex items-center justify-center text-xl text-gray-800">
+                  {icon}
+                </div>
+              </div>
             </div>
           )}
+          
+          {/* Card content with increased padding */}
+          <div className="p-6 pt-10 text-center">
+            <h2 className="text-xl font-medium text-gray-800 dark:text-white mb-4">
+              {header}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
+              {text1}
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
+              {text2}
+            </p>
+            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
+              {text3}
+            </p>
+            
+            {/* Optional action button - Material style with more emphasis */}
+            {actionText && (
+              <div className="flex justify-end">
+                <button 
+                  onClick={onActionClick}
+                  className={`uppercase font-medium ${colors.text} py-2 px-6 rounded focus:outline-none focus:ring-2 ${colors.ripple} transition-colors`}
+                >
+                  {actionText}
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+
+      {/* Image card - 3/4 width on desktop */}
+      <div className="w-full md:w-3/4">
+        <div className="w-full rounded-lg overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 h-full">
+          <img 
+            src={imgSrc} 
+            alt={imgAlt} 
+            className="w-full h-full object-cover"
+          />
         </div>
       </div>
     </div>
