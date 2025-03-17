@@ -8,6 +8,14 @@ export default function Home() {
 
     const carouselItems = [
       { 
+        src: "/images/double-rainbow.png", 
+        alt: "Modern Web Design", 
+        title: "Modern Web Design",
+        description: "Stunning, responsive interfaces that captivate visitors across all devices. Our pixel-perfect designs combine aesthetics with functionality to elevate your brand's digital presence.",
+        cta: "View Portfolio",
+        ctaLink: "/web-design"
+       },
+      { 
        src: "/images/platte.png", 
        alt: "Performance Optimization", 
        title: "Performance Optimization",
@@ -21,15 +29,7 @@ export default function Home() {
         title: "Custom Web Applications",
         description: "Bespoke solutions built with cutting-edge frameworks that grow with your business. We create intuitive applications that streamline operations and delight users.",
         cta: "Our Services",
-        ctaLink: "/seo"
-      },
-      { 
-       src: "/images/double-rainbow.png", 
-       alt: "Modern Web Design", 
-       title: "Modern Web Design",
-       description: "Stunning, responsive interfaces that captivate visitors across all devices. Our pixel-perfect designs combine aesthetics with functionality to elevate your brand's digital presence.",
-       cta: "View Portfolio",
-       ctaLink: "/seo"
+        ctaLink: "/web-design"
       }
     ]
 
