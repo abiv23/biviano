@@ -1,4 +1,4 @@
-import DynamicBackground from '../../components/DynamicBackground';
+import DynamicBackground from '@/components/DynamicBackground';
 
 
 export default function ContactPage() {

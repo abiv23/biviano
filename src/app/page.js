@@ -1,14 +1,16 @@
-import Hero from '../components/Hero'
-import MSPaint from '../components/MSPaint'
-import Waves from '../components/Waves'
-import Carousel from '../components/Carousel'
-import DynamicBackground from '../components/DynamicBackground'
+import { Code, Search, Palette, Smartphone, LineChart, Zap } from "lucide-react"
+
+import Hero from '@/components/Hero'
+import MSPaint from '@/components/MSPaint'
+import Waves from '@/components/Waves'
+import Carousel from '@/components/Carousel'
+import ServicesSection from '@/components/ServicesSection'
 
 export default function Home() {
 
     const carouselItems = [
       { 
-        src: "/images/double-rainbow.png", 
+        src: "/images/forrest-light.jpg", 
         alt: "Modern Web Design", 
         title: "Modern Web Design",
         description: "Stunning, responsive interfaces that captivate visitors across all devices. Our pixel-perfect designs combine aesthetics with functionality to elevate your brand's digital presence.",
@@ -16,7 +18,7 @@ export default function Home() {
         ctaLink: "/web-design"
        },
       { 
-       src: "/images/platte.png", 
+       src: "/images/denver-platte.jpg", 
        alt: "Performance Optimization", 
        title: "Performance Optimization",
        description: "Revitalize your existing website with lightning-fast load times, mobile-friendly designs, and search engine optimization that drives organic traffic and improves rankings.",
@@ -33,12 +35,56 @@ export default function Home() {
       }
     ]
 
+    const webDesignServices = [
+      {
+          icon: <Palette className="h-10 w-10 text-blue-600" />,
+          title: "Web Design",
+          description: "Custom, responsive website designs that captivate your audience and reflect your brand identity.",
+          link: "/services/web-design",
+      },
+      {
+          icon: <Search className="h-10 w-10 text-blue-600" />,
+          title: "Search Engine Optimization",
+          description: "Data-driven SEO strategies to improve rankings, increase organic traffic, and drive conversions.",
+          link: "/services/seo",
+      },
+      {
+          icon: <Code className="h-10 w-10 text-blue-600" />,
+          title: "Web Development",
+          description: "Professional website development with clean code, fast load times, and seamless functionality.",
+          link: "/services/web-development",
+      },
+      {
+          icon: <Smartphone className="h-10 w-10 text-blue-600" />,
+          title: "Mobile Optimization",
+          description: "Ensuring your website performs flawlessly across all devices with responsive, mobile-first design.",
+          link: "/services/mobile-optimization",
+      },
+      {
+          icon: <LineChart className="h-10 w-10 text-blue-600" />,
+          title: "Analytics & Reporting",
+          description: "Comprehensive performance tracking and actionable insights to continuously improve your digital presence.",
+          link: "/services/analytics",
+      },
+      {
+        icon: <Zap className="h-10 w-10 text-blue-600" />,
+        title: "Page Speed Optimization",
+        description: "Enhance user experience and search rankings with lightning-fast page load times through advanced performance tuning techniques.",
+        link: "/services/page-speed-optimization",
+      }
+  ]
+
 
   return (
     <>
       <Hero />
       <Carousel items={carouselItems} />
       <MSPaint />
+      <ServicesSection 
+          title="Our Services" 
+          description=""
+          services={webDesignServices}
+        />
       <Waves />
     </>
   );

@@ -109,7 +109,7 @@ export default function ContentBlurb({
   return (
     <div className="flex flex-col md:flex-row w-full p-12 gap-4">
       {/* Content card - 1/4 width on desktop */}
-      <div className="w-full md:w-1/4">
+      <div className="w-full md:w-2/5">
         <div className="w-full rounded-lg bg-white dark:bg-gray-800 overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 h-full">
           {/* Colored header bar - always visible even without icon */}
           <div className={`${colors.bg} h-3 w-full`}></div>
@@ -156,7 +156,7 @@ export default function ContentBlurb({
       </div>
 
       {/* Image card - 3/4 width on desktop */}
-      <div className="w-full md:w-3/4">
+      <div className="w-full md:w-3/5">
         <div className="w-full rounded-lg overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 h-full">
           <img 
             src={imgSrc} 

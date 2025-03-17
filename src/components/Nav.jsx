@@ -50,23 +50,30 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 cursor-auto">
+             <Link 
+                href="/" 
+                className="text-white hover:text-indigo-500 transition-colors text-sm"
+                style={{ fontFamily: "var(--font-inter)" }}
+                >
+                Home
+            </Link>
             <Link 
                 href="/about" 
-                className="text-white hover:text-indigo-300 transition-colors text-sm"
+                className="text-white hover:text-indigo-500 transition-colors text-sm"
                 style={{ fontFamily: "var(--font-inter)" }}
                 >
                 About
             </Link>
             <Link 
                 href="/web-design" 
-                className="text-white hover:text-indigo-300 transition-colors text-sm"
+                className="text-white hover:text-indigo-500 transition-colors text-sm"
                 style={{ fontFamily: "var(--font-inter)" }}
                 >
                 Design
             </Link>
             <Link 
                 href="/seo" 
-                className="text-white hover:text-indigo-300 transition-colors text-sm"
+                className="text-white hover:text-indigo-500 transition-colors text-sm"
                 style={{ fontFamily: "var(--font-inter)" }}
                 >
                 SEO
