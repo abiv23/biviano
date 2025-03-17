@@ -111,14 +111,3 @@ npm run build
 # or
 vercel deploy
 ```
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgements
-
-- [Next.js](https://nextjs.org/) - The React framework for production
-- [Tailwind CSS](https://tailwindcss.com/) - A utility-first CSS framework
-- [shadcn/ui](https://ui.shadcn.com/) - UI component structure
-- [Google Fonts](https://fonts.google.com/) - Typography
