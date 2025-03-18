@@ -55,6 +55,12 @@ export default function ContentBlurb({
       text: "text-rose-500",
       hover: "hover:bg-rose-600",
       ripple: "focus:ring-rose-300"
+    },
+    cyan: {
+      bg: "bg-cyan-500",
+      text: "text-cyan-500",
+      hover: "hover:bg-cyan-600",
+      ripple: "focus:ring-cyan-300"
     }
   };
 
@@ -110,7 +116,7 @@ export default function ContentBlurb({
     <div className="flex flex-col md:flex-row w-full p-12 gap-4">
       {/* Content card - 1/4 width on desktop */}
       <div className="w-full md:w-2/5">
-        <div className="w-full rounded-lg bg-white dark:bg-gray-800 overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700 h-full">
+        <div className="w-full rounded-lg bg-gray-900 overflow-hidden shadow-lg border border-gray-800 h-full">
           {/* Colored header bar - always visible even without icon */}
           <div className={`${colors.bg} h-3 w-full`}></div>
           
@@ -127,25 +133,25 @@ export default function ContentBlurb({
           
           {/* Card content with increased padding */}
           <div className="p-6 pt-10 text-center">
-            <h2 className="text-xl font-medium text-gray-800 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-cyan-400 mb-6 tracking-tight">
               {header}
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
+            <p className="text-white leading-relaxed mb-8 text-lg font-medium">
               {text1}
             </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
+            <p className="text-gray-300 leading-relaxed mb-8 text-lg">
               {text2}
             </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 text-base">
+            <p className="text-cyan-200 leading-relaxed mb-8 text-lg font-medium">
               {text3}
             </p>
             
             {/* Optional action button - Material style with more emphasis */}
             {actionText && (
-              <div className="flex justify-end">
+              <div className="flex justify-center">
                 <button 
                   onClick={onActionClick}
-                  className={`uppercase font-medium ${colors.text} py-2 px-6 rounded focus:outline-none focus:ring-2 ${colors.ripple} transition-colors`}
+                  className={`uppercase font-bold bg-cyan-500 text-white py-3 px-8 rounded-md hover:bg-cyan-600 focus:outline-none focus:ring-2 focus:ring-cyan-300 transition-colors`}
                 >
                   {actionText}
                 </button>

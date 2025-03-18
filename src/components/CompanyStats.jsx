@@ -1,12 +1,9 @@
-import React from 'react';
-
 export default function CompanyStats({
   backgroundColor = "bg-violet-600",
   title = "By The Numbers",
   subtitle = "BIV web designs has established a record of excellence in the industry.",
   stats = [
-    { value: "20+", label: "Years of Experience" },
-    { value: "100", label: "Page Speed Score" },
+    { value: "20+", label: "Years of SEO Experience" },
     { value: "10+", label: "Years of Web Development" },
     { value: "1.2m", label: "Daily Users on largest project" },
   ]
@@ -21,7 +18,7 @@ export default function CompanyStats({
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-3 gap-8">
           {stats.map((stat, index) => (
             <div className="text-center" key={index}>
               <div className="bg-white/10 rounded-lg p-6">

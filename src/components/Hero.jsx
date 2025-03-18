@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Pacifico } from "next/font/google"
+import { ScrollIndicator } from './ScrollIndicator'
 import Image from "next/image"
 import { cn } from "@/lib/utils"
 
@@ -70,6 +71,8 @@ function ElegantShape({
     </motion.div>
   )
 }
+
+
 
 export default function Hero({
   badge = "",
@@ -167,6 +170,9 @@ export default function Hero({
           </motion.div>
         </div>
       </div>
+      
+      {/* Scroll Indicator */}
+      <ScrollIndicator text="There's More" />
 
       {/* Adjusted gradient overlay for better visibility */}
       <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-[#111111]/70 pointer-events-none" />

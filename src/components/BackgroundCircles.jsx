@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import clsx from "clsx"
 import { useState } from "react"
 
+import { ScrollIndicator } from "./ScrollIndicator"
+
 const COLOR_VARIANTS = {
   primary: {
     border: ["border-emerald-500/60", "border-cyan-400/50", "border-slate-600/30"],
@@ -139,6 +141,7 @@ export function BackgroundCircles({
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#0F766E/30%,transparent_70%)] blur-[120px]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,#2DD4BF/15%,transparent)] blur-[80px]" />
       </div>
+      <ScrollIndicator text="Scroll" />
     </div>
   )
 }

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
+import { ScrollIndicator } from "@/components/ScrollIndicator"
 
 function FloatingPaths({ position }) {
   const paths = Array.from({ length: 36 }, (_, i) => ({
@@ -114,6 +115,8 @@ export default function BackgroundPaths({
           </div>
         </motion.div>
       </div>
+      {/* Scroll Indicator */}
+      <ScrollIndicator text="There's More" />
     </div>
   )
 }
