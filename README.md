@@ -104,10 +104,4 @@ Replace the carousel images in the `public/images/` directory with your own. Upd
 
 ## Deployment
 
-Deploy on Vercel for the best experience with Next.js:
-
-```bash
-npm run build
-# or
-vercel deploy
-```
+Automated via Vercel
